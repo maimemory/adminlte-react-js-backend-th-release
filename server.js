@@ -10,7 +10,9 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cors());
 
-const url = 'mongodb://vsmqtt.space:2717'
+let port = process.env.PORT || 1000;
+
+const url = 'mongodb://vsmqtt.space:2717';
 
 // mongoose.set('debug', true);
 
@@ -162,6 +164,6 @@ app.post('/editmemo/:id', (req, res) => {
     })
 })
 
-app.listen(1000, () => {
-    console.log('Server is running at http://localhost:1000')
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`)
 })
